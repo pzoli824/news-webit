@@ -1,6 +1,6 @@
 <div
   class="card my-2 rounded shadow mx-auto border-light border"
-  style="max-width: 540px"
+  style="max-width: 740px; word-wrap: break-word"
 >
   <div class="row g-0">
     <div class="col-md-4">
@@ -8,22 +8,28 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">
-          {{ news.title }}
+        <h6 class="card-title row text-center">
+          <div class="col-md-4 text-start">
+            {{ news.title }}
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4 text-end">
+            <button type="button" class="btn btn-outline-success mx-1">
+              <i class="bi bi-pen" width="16" height="16"></i>
+            </button>
 
-          <button type="button" class="btn btn-outline-success">
-            <i class="bi bi-pen" width="16" height="16"></i>
-          </button>
-
-          <button type="button" class="btn btn-outline-danger">
-            <i class="bi bi-ban"></i>
-          </button>
-        </h5>
-        <p class="card-text">
+            <button type="button" class="btn btn-outline-danger mx-1">
+              <i class="bi bi-ban"></i>
+            </button>
+          </div>
+        </h6>
+        <p class="card-text overflow-hidden text-nowrap text-truncate">
           {{ news.description }}
         </p>
         <p class="card-text">
-          <small class="text-body-secondary">Last updated 3 mins ago</small>
+          <small class="text-body-secondary"
+            >News was posted on {{ news.date | date }}</small
+          >
         </p>
       </div>
     </div>
