@@ -4,6 +4,7 @@ import { NewsService } from '../../services/news.service';
 import { News } from '../../models/news.model';
 import { CommonModule } from '@angular/common';
 import { NewsNavbarComponent } from '../../../../shared/components/news-navbar/news-navbar.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-news-page',
@@ -13,12 +14,12 @@ import { NewsNavbarComponent } from '../../../../shared/components/news-navbar/n
   styleUrl: './news-page.component.scss',
 })
 export class NewsPageComponent implements OnInit {
-  public news: News[] = [];
+  public news$!: Observable<News[]>;
 
   constructor(private readonly newsService: NewsService) {
     this.newsService = newsService;
   }
   ngOnInit(): void {
-    this.news = this.newsService.getAll();
+    this.news$ = this.newsService.getAll();
   }
 }

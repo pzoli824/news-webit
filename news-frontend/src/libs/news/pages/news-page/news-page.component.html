@@ -3,7 +3,7 @@
 
 <div class="container">
   
-  @for (item of news; track item) {
+  @for (item of news$ | async; track item) {
   <div class="row"><app-news-card [news]="item" /></div>
   }
 
