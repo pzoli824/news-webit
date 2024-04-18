@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BluePlusButtonComponent } from './blue-plus-button.component';
+import { NewsNavbarComponent } from './news-navbar.component';
 
-describe('BluePlusButtonComponent', () => {
-  let component: BluePlusButtonComponent;
-  let fixture: ComponentFixture<BluePlusButtonComponent>;
+describe('NewsNavbarComponent', () => {
+  let component: NewsNavbarComponent;
+  let fixture: ComponentFixture<NewsNavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BluePlusButtonComponent]
+      imports: [NewsNavbarComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BluePlusButtonComponent);
+    fixture = TestBed.createComponent(NewsNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,14 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NewsCardComponent } from '../../components/news-card/news-card.component';
-import { BluePlusButtonComponent } from '../../../../shared/components/blue-plus-button/blue-plus-button.component';
+import { NewsService } from '../../services/news.service';
+import { News } from '../../models/news.model';
+import { CommonModule } from '@angular/common';
+import { NewsNavbarComponent } from '../../../../shared/components/news-navbar/news-navbar.component';
 
 @Component({
   selector: 'app-news-page',
   standalone: true,
-  imports: [NewsCardComponent, BluePlusButtonComponent],
+  imports: [NewsCardComponent, NewsNavbarComponent, CommonModule],
   templateUrl: './news-page.component.html',
-  styleUrl: './news-page.component.scss'
+  styleUrl: './news-page.component.scss',
 })
-export class NewsPageComponent {
+export class NewsPageComponent implements OnInit {
+  public news: News[] = [];
 
+  constructor(private readonly newsService: NewsService) {
+    this.newsService = newsService;
+  }
+  ngOnInit(): void {
+    this.news = this.newsService.getAll();
+  }
 }

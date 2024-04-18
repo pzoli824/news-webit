@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { News } from '../../models/news.model';
 
 @Component({
   selector: 'app-news-card',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './news-card.component.scss'
 })
 export class NewsCardComponent {
+  
+  
+@Input({ required: true }) news!: News;
 
 }
