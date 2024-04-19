@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { News } from '../../models/news.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { News, NewsEmitType, NewsEmitter } from '../../models/news.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,10 +7,17 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './news-card.component.html',
-  styleUrl: './news-card.component.scss'
+  styleUrl: './news-card.component.scss',
 })
 export class NewsCardComponent {
-  
-  
-@Input({ required: true }) news!: News;
+  @Input({ required: true }) news!: News;
+  @Output() newsEmitter = new EventEmitter<NewsEmitter>();
+
+  deleteNews() {
+    this.newsEmitter.emit({
+      type: NewsEmitType.Delete,
+      news: this.news,
+    } as NewsEmitter);
+  }
+
 }

@@ -1,10 +1,10 @@
 
-<app-news-navbar />
+<app-news-navbar (newsEmitter)="NewsEmitterHandler($event)" />
 
 <div class="container">
   
-  @for (item of news$ | async; track item) {
-  <div class="row"><app-news-card [news]="item" /></div>
+  @for (n of news$ | async; track n) {
+  <div class="row"><app-news-card (newsEmitter)="NewsEmitterHandler($event)" [news]="n" /></div>
   }
 
 </div>
