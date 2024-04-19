@@ -1,0 +1,8 @@
+<nav class="sticky-top navbar bg-body-tertiary shadow-sm">
+  <form class="container-fluid justify-content-center">
+    <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#newsForm" type="button">Create News Post</button>
+  </form>
+</nav>
+
+<app-news-form (newsEmitter)="createNewsPostNavbar($event)" />
+     

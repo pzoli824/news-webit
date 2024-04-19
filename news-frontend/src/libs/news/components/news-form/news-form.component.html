@@ -1,0 +1,69 @@
+<div
+  class="modal fade"
+  id="newsForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="newsFormLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title my-4 mx-auto" id="newsFormTitle">
+          Create news post
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="newsForm">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              formControlName="title"
+              placeholder="Post title"
+            />
+          </div>
+          <div class="form-group my-4">
+            <label for="description">Description</label>
+            <textarea
+              class="form-control"
+              formControlName="description"
+              id="description"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group custom-file my-4">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="imgUrl"
+              formControlName="imgUrl"
+            />
+            <label class="custom-file-label" for="imgUrl"
+              >Upload an image...</label
+            >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="closeForm"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="createNewsPost()"
+        >
+          Create post
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
